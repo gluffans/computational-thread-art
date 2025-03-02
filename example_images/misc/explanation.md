@@ -1,7 +1,0 @@
-- In layer-0, every left-paren attends uniformly to the tokens to its right (including itself), and stores the `N_( - N_)` information
-	- Where `N_(` = number of left parens to the right of that one, and `N_)` for right parens
-- The MLPs can compute the binary information `N_( > N_)` and `N_( < N_)` at each of these sequence positions 
-- Head 2.0 is responsible for specifically moving the combined binary information `N_( == N_)` to position zero, i.e. the "net elevation circuit"
-- Head 2.1 is responsible for detecting any `N_( > N_)` at any sequence position and classifying the seq as unbalanced if this exists, i.e. the "anywhere negative circuit"
-  	- Remember that we're going from right-to-left, so the left brackets `(` are the ones which reduce altitude by 1, so it's sufficient to check if `N_( > N_)` at any left parens
-- A separate circuit kicks in when the very first bracket is `)` because this is sufficient for the sequence to be unbalanced (that's why we only analyze the circuits above when the first paren is `(`)
